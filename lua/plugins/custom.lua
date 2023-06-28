@@ -222,6 +222,7 @@ return {
     opts = {
       ensure_installed = {
         "typescript-language-server",
+        "marksman",
       },
     },
   },
