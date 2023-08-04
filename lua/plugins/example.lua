@@ -263,4 +263,53 @@ return {
       })
     end,
   },
+  {
+    "ggandor/leap.nvim",
+    enabled = false,
+  },
+  {
+    "ggandor/flit.nvim",
+    enabled = false,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin-macchiato",
+    },
+  },
+  {
+    "easymotion/vim-easymotion",
+    enabled = false,
+    event = { "VimEnter" },
+    init = function()
+      vim.g.EasyMotion_do_mapping = 0
+      vim.g.EasyMotion_startofline = 0
+      vim.g.EasyMotion_use_upper = 1
+      vim.g.EasyMotion_keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ;"
+      vim.g.EasyMotion_smartcase = 1
+      vim.g.EasyMotion_user_smartsign_us = 1
+    end,
+    keys = {
+      { "s", mode = { "n" }, desc = "Easymotion Single Character" },
+      { "S", mode = { "n" }, desc = "Easymotion Multiple Character" },
+      { "<leader>j", mode = { "n", "v" }, desc = "Easymotion j" },
+      { "<leader>k", mode = { "n", "v" }, desc = "Easymotion k" },
+      { "t", mode = { "n", "v", "o" }, desc = "Easymotion t" },
+      { "f", mode = { "n", "v", "o" }, desc = "Easymotion f" },
+    },
+    config = function()
+      vim.keymap.set("n", "s", "<Plug>(easymotion-s2)")
+      vim.keymap.set("n", "S", "<plug>(easymotion-sn)")
+      vim.keymap.set("n", "<leader>j", "<plug>(easymotion-j)")
+      vim.keymap.set("v", "<leader>j", "<plug>(easymotion-j)")
+      vim.keymap.set("n", "<leader>k", "<Plug>(easymotion-k)")
+      vim.keymap.set("v", "<leader>k", "<Plug>(easymotion-k)")
+      vim.keymap.set("n", "t", "<Plug>(easymotion-t)")
+      vim.keymap.set("v", "t", "<Plug>(easymotion-t)")
+      vim.keymap.set("o", "t", "<Plug>(easymotion-t)")
+      vim.keymap.set("n", "f", "<Plug>(easymotion-f)")
+      vim.keymap.set("v", "f", "<Plug>(easymotion-f)")
+      vim.keymap.set("o", "f", "<Plug>(easymotion-f)")
+    end,
+  },
 }
