@@ -189,4 +189,26 @@ return {
       },
     },
   },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    keys = {
+      { "<leader>e", "<cmd>Neotree focus<cr>", { desc = "Focus Neotree" } },
+      -- ^ Focus instead of toggle
+    },
+    opts = {
+      commands = {
+        copy_absolute_path = function(state)
+          local node = state.tree:get_node() -- node in focus when keybind is pressed
+          local absolute_path = node.path
+          vim.print(absolute_path)
+          vim.fn.setreg("+", absolute_path)
+        end,
+      },
+      window = {
+        mappings = {
+          ["<M-c>"] = "copy_absolute_path",
+        },
+      },
+    },
+  },
 }
